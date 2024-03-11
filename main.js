@@ -1,4 +1,4 @@
 function GetInput(){
     input = document.getElementById("input").value
-    document.getElementById("h2_result").innerHTML = input
+    document.getElementById("result").innerHTML = input
 }

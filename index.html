@@ -11,30 +11,30 @@
         <a href="https://github.com/MartinHargous">Link to my github account</a>
         <h2>Personal Summary</h2>
         <p>I am Martín Hargous, I am 21 years old and I study civil engineer in <a href="https://www.uandes.cl">Universidad de los Andes</a> in Chile, I like music (I play the drums), programing, and anything that related to pc's</p>
-    <table>
+    <table class = "tabla">
         <tr>
             <th>Skill</th>
             <th>Level</th>
         </tr>
         <tr>
             <td>Python</td>
-            <td>Expert</td>
+            <td id = "Expert">Expert</td>
         </tr>
         <tr>
             <td>JavaScript</td>
-            <td>Basic</td>
+            <td id = "Basic">Basic</td>
         </tr>
         <tr>
             <td>HTML/CSS</td>
-            <td>Basic</td>
+            <td id = "Basic">Basic</td>
         </tr>
         <tr>
             <td>Git</td>
-            <td>Basic</td>
+            <td id = "Basic">Basic</td>
         </tr>
         <tr>
             <td>Excel</td>
-            <td>Advance</td>
+            <td id = "Advance">Advance</td>
         </tr>
         <tr>
             <td>Ruby</td>
@@ -42,11 +42,11 @@
         </tr>
         <tr>
             <td>SQL</td>
-            <td>Expert</td>
+            <td id = "Expert">Expert</td>
         </tr>
         <tr>
             <td>English</td>
-            <td>Advance</td>
+            <td id = "Advance">Advance</td>
         </tr>
         <tr>
             <td>Spanish</td>
@@ -55,7 +55,10 @@
     </table>
     <br>
     <input type="text" id="input">
-    <button type="button" onclick="GetInput()">Get input</button>
-    <h2 id="h2_result">the text box says:</h2>   
+    <button type="button" onclick="GetInput()">Get input</button>   
+    <table id = "result_box">
+        <td>the text box says:</td>
+        <td id = "result"></td>
+    </table>
 </body>
 </html>
