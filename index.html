@@ -1,10 +1,11 @@
 <html>
     <head>
-        <link href="./styles.css" rel="stylessheet">
+        <link href="styles.css" rel="stylesheet" type="text/css">
+        <script src="main.js"></script>
     </head>
     <body>
         <h1>Martín Hargous's website</h1>
-        <p>Name: Martín Hargous</p>
+        <p id="name">Name: Martín Hargous</p>
         <p>Major: Computer science</p>
         <p>Year of University Enrollment: 2021</p>
         <a href="https://github.com/MartinHargous">Link to my github account</a>
@@ -12,8 +13,8 @@
         <p>I am Martín Hargous, I am 21 years old and I study civil engineer in <a href="https://www.uandes.cl">Universidad de los Andes</a> in Chile, I like music (I play the drums), programing, and anything that related to pc's</p>
     <table>
         <tr>
-            <td>Skill</td>
-            <td>Level</td>
+            <th>Skill</th>
+            <th>Level</th>
         </tr>
         <tr>
             <td>Python</td>
@@ -37,7 +38,7 @@
         </tr>
         <tr>
             <td>Ruby</td>
-            <td>none</td>
+            <td id="ruby">None</td>
         </tr>
         <tr>
             <td>SQL</td>
@@ -52,5 +53,9 @@
             <td>Native</td>
         </tr>
     </table>
-    </body>
+    <br>
+    <input type="text" id="input">
+    <button type="button" onclick="GetInput()">Get input</button>
+    <h2 id="h2_result">the text box says:</h2>   
+</body>
 </html>

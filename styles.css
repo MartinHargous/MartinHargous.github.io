@@ -1,7 +1,26 @@
-table {
-  border: 40px solid;
+body{
+  background-color: rgb(211, 236, 172);
 }
+#name{
+  font-size: 25;
+}
+#ruby{
+  color: red;
+}
+tr:nth-child(odd) {
+  background-color: #d8dadc;
+}
+tr:nth-child(even) {
+  background-color: #c6dff7;
+}
+table{
+  width: 20%;
+  background-color: #000000;
 
-td{
-  color: blueviolet;
+}
+#h2_result{
+  color: green;
+}
+#result_input{
+  color: rgb(251, 255, 0);
 }
