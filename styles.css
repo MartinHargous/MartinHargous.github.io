@@ -13,7 +13,7 @@ body{
 .tabla tr:nth-child(even){
   background-color: #acfcff;
 }
-table{
+.tabla{
   width: 20%;
   background-color: #000000;
 
