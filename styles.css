@@ -1,29 +1,20 @@
-body{
-  background-color: rgb(211, 236, 172);
-}
+
 #name{
   font-size: 25;
 }
 #ruby{
   color: red;
 }
-.tabla tr:nth-child(odd){
-  background-color: #d8dadc;
-}
-.tabla tr:nth-child(even){
-  background-color: #acfcff;
-}
-.tabla{
-  width: 20%;
-  background-color: #000000;
 
+.tabla{
+  width:100%;
+  height:100%;
 }
-#h2_result{
-  color: green;
+#text{
+  margin-left: auto !important; 
+  margin-right: 0 !important;
 }
-#result_input{
-  color: rgb(251, 255, 0);
-}
+
 #Basic{
   color:rgb(255, 88, 111);
 }
@@ -33,9 +24,11 @@ body{
 #Advance{
   color:rgb(174, 0, 255);
 }
+
 #result{
-  color:rgb(255, 0, 0);
+  color:rgb(255, 0, 0) !important;
+  margin-left: 0 !important; 
+  margin-right: auto !important;
+
 }
-#result_box{
-  background-color: rgb(211, 236, 172);
-}
+
