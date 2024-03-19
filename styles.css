@@ -6,9 +6,15 @@
   color: red;
 }
 
-.navbar .navbar-nav .nav-link:hover{
+.navbar .navbar-nav .nav-link:hover:not([aria-current="page"]){
   background-color: #9ec5fe;
 }
+.navbar .navbar-nav .nav-link[aria-current="page"] {
+  color: #ffffff;
+  background-color: #007bff;
+  border-radius: 5px; 
+}
+
 
 .tabla{
   width:100%;
