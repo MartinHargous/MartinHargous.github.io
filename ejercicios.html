@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sala de Ejercicios - Python Academy</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm mb-5">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="bi bi-code-slash"></i> Python Academy</a>
+            <div class="ms-auto">
+                <a class="nav-link text-white" href="index.html"><i class="bi bi-house-door"></i> Volver al Curso</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mb-5">
+        <div class="text-center mb-5">
+            <h1 class="display-4 fw-bold">Sala de Entrenamiento</h1>
+            <p class="lead text-muted">Filtra por tema o dificultad y pon a prueba lo que has aprendido.</p>
+        </div>
+
+        <!-- Filtros -->
+        <div class="card shadow-sm border-0 mb-4 bg-white">
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="filtroCategoria" class="form-label fw-bold">Filtrar por Categoría:</label>
+                        <select id="filtroCategoria" class="form-select">
+                            <option value="Todas">Todas las categorías</option>
+                            <option value="Variables">Variables y Tipos</option>
+                            <option value="If">Condicionales (If)</option>
+                            <option value="Ciclos">Ciclos (For/While)</option>
+                            <option value="Estructuras">Listas y Diccionarios</option>
+                            <option value="Funciones">Funciones y Recursividad</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="filtroDificultad" class="form-label fw-bold">Filtrar por Dificultad:</label>
+                        <select id="filtroDificultad" class="form-select">
+                            <option value="Todas">Todas las dificultades</option>
+                            <option value="Fácil">Fácil</option>
+                            <option value="Medio">Medio</option>
+                            <option value="Difícil">Difícil</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenedor donde se inyectarán los ejercicios desde el JSON -->
+        <div id="contenedor-ejercicios" class="row g-4">
+            <!-- Los ejercicios aparecerán aquí -->
+        </div>
+
+        <!-- Mensaje de no resultados (oculto por defecto) -->
+        <div id="mensaje-vacio" class="text-center mt-5 d-none">
+            <h3 class="text-muted"><i class="bi bi-emoji-frown"></i> No se encontraron ejercicios con esos filtros.</h3>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Lógica en JavaScript para leer el JSON y filtrar -->
+    <script>
+        let ejerciciosData = []; // Aquí guardaremos los datos del JSON
+
+        // 1. Cargar el JSON al abrir la página
+        fetch('ejercicios.json')
+            .then(respuesta => respuesta.json())
+            .then(datos => {
+                ejerciciosData = datos;
+                renderizarEjercicios(ejerciciosData); // Mostrar todos al inicio
+            })
+            .catch(error => console.error("Error cargando el JSON:", error));
+
+        // 2. Función para dibujar los ejercicios en el HTML
+        function renderizarEjercicios(ejercicios) {
+            const contenedor = document.getElementById('contenedor-ejercicios');
+            const mensajeVacio = document.getElementById('mensaje-vacio');
+            contenedor.innerHTML = ''; 
+
+            if (ejercicios.length === 0) {
+                mensajeVacio.classList.remove('d-none');
+                return;
+            } else {
+                mensajeVacio.classList.add('d-none');
+            }
+
+            ejercicios.forEach(ej => {
+                let badgesCategorias = ej.categorias.map(cat => {
+                    let color = "bg-secondary";
+                    if(cat === "Variables") color = "bg-primary";
+                    if(cat === "If") color = "bg-info text-dark";
+                    if(cat === "Ciclos") color = "bg-success";
+                    if(cat === "Estructuras") color = "bg-warning text-dark";
+                    if(cat === "Funciones") color = "bg-danger";
+                    return `<span class="badge ${color} me-1">${cat}</span>`;
+                }).join('');
+
+                let colorDificultad = ej.dificultad === "Fácil" ? "text-success" : 
+                                      ej.dificultad === "Medio" ? "text-warning" : "text-danger";
+
+                const tarjeta = `
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="card-body p-4 d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <h5 class="card-title fw-bold mb-0">${ej.titulo}</h5>
+                                    <span class="fw-bold ${colorDificultad}"><i class="bi bi-bar-chart-fill"></i> ${ej.dificultad}</span>
+                                </div>
+                                <div class="mb-3">
+                                    ${badgesCategorias}
+                                </div>
+                                <p class="card-text text-muted mb-4">${ej.descripcion.substring(0, 100)}...</p>
+                                
+                                <!-- ESTE ES EL CAMBIO: Enviamos al usuario a la nueva vista con el ID en la URL -->
+                                <div class="mt-auto">
+                                    <a href="vista_ejercicio.html?id=${ej.id}" class="btn btn-dark w-100">Resolver Ejercicio <i class="bi bi-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                contenedor.innerHTML += tarjeta;
+            });
+        }
+
+        // 3. Lógica de los filtros
+        const filtroCat = document.getElementById('filtroCategoria');
+        const filtroDif = document.getElementById('filtroDificultad');
+
+        function filtrar() {
+            const catSeleccionada = filtroCat.value;
+            const difSeleccionada = filtroDif.value;
+
+            const filtrados = ejerciciosData.filter(ej => {
+                const pasaCategoria = (catSeleccionada === "Todas") || ej.categorias.includes(catSeleccionada);
+                const pasaDificultad = (difSeleccionada === "Todas") || ej.dificultad === difSeleccionada;
+                return pasaCategoria && pasaDificultad;
+            });
+
+            renderizarEjercicios(filtrados);
+        }
+
+        // Ejecutar el filtro cada vez que el usuario cambia una opción
+        filtroCat.addEventListener('change', filtrar);
+        filtroDif.addEventListener('change', filtrar);
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "titulo": "Calculadora de Edad",
+        "descripcion": "Pide al usuario su año de nacimiento e imprime su edad actual. Asume que estamos en el año 2026.",
+        "dificultad": "Fácil",
+        "categorias": ["Variables"],
+        "solucion": "anio_nacimiento = int(input('¿En qué año naciste? '))\nedad = 2026 - anio_nacimiento\nprint(f'Tienes {edad} años.')"
+    },
+    {
+        "id": 2,
+        "titulo": "Par o Impar",
+        "descripcion": "Pide un número al usuario y dile si es par o impar.",
+        "dificultad": "Fácil",
+        "categorias": ["Variables", "If"],
+        "solucion": "numero = int(input('Ingresa un número: '))\nif numero % 2 == 0:\n    print('Es par')\nelse:\n    print('Es impar')"
+    },
+    {
+        "id": 3,
+        "titulo": "Buscador de Vocales",
+        "descripcion": "Pide una frase al usuario y cuenta cuántas vocales tiene en total.",
+        "dificultad": "Medio",
+        "categorias": ["Variables", "Ciclos", "If"],
+        "solucion": "frase = input('Ingresa una frase: ').lower()\ncontador = 0\nfor letra in frase:\n    if letra in 'aeiou':\n        contador += 1\nprint(f'La frase tiene {contador} vocales.')"
+    },
+    {
+        "id": 4,
+        "titulo": "Inventario de Tienda",
+        "descripcion": "Crea un diccionario con 3 productos y sus precios. Luego, usa un ciclo for para aplicarle un 10% de descuento a todos e imprime el nuevo inventario.",
+        "dificultad": "Medio",
+        "categorias": ["Estructuras", "Ciclos"],
+        "solucion": "inventario = {'Manzana': 100, 'Pan': 500, 'Leche': 800}\nfor producto in inventario:\n    inventario[producto] = inventario[producto] * 0.9\nprint(f'Inventario con descuento: {inventario}')"
+    },
+    {
+        "id": 5,
+        "titulo": "Validador de Contraseñas Recursivo",
+        "descripcion": "Crea una función recursiva que pida una contraseña. Si la contraseña tiene menos de 8 caracteres, debe imprimir un error y volver a llamarse a sí misma hasta que el usuario ingrese una válida.",
+        "dificultad": "Difícil",
+        "categorias": ["Funciones", "If"],
+        "solucion": "def pedir_password():\n    pwd = input('Crea una contraseña (mínimo 8 caracteres): ')\n    if len(pwd) < 8:\n        print('Error: muy corta.')\n        return pedir_password()\n    else:\n        print('¡Contraseña guardada!')\n        return pwd\n\npedir_password()"
+    }
+]

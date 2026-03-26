@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condicionales If, Elif, Else - Python Academy</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Prism.js para colores en el código -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="bg-light">
+
+    <!-- Navegación -->
+    <nav class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="bi bi-arrow-left-circle me-2"></i> Volver al Inicio
+            </a>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                
+                <!-- Encabezado de Lección -->
+                <div class="mb-4">
+                    <span class="badge bg-info text-dark mb-2">Parte 1.5</span>
+                    <h1 class="display-5 fw-bold text-dark">Condicionales: If, Elif, Else</h1>
+                    <p class="lead text-muted">Enséñale a tu programa a tomar decisiones basadas en diferentes situaciones.</p>
+                </div>
+
+                <!-- Introducción -->
+                <section class="mb-4">
+                    <h3 class="h4 text-info"><i class="bi bi-sign-turn-right"></i> ¿Qué son los condicionales?</h3>
+                    <p>Hasta ahora, nuestros programas se ejecutaban de arriba hacia abajo, línea por línea. Pero, ¿qué pasa si queremos que el código haga una cosa si el usuario es mayor de edad, y otra distinta si es menor? Para crear estas "bifurcaciones" o caminos, usamos la instrucción <code>if</code> (si condicional).</p>
+                    http://googleusercontent.com/image_content/183
+
+
+                </section>
+
+                <!-- Sección: Operadores -->
+                <section class="mb-5">
+                    <div class="alert alert-info border-0 shadow-sm text-dark">
+                        <i class="bi bi-question-circle-fill"></i> <strong>Para preguntar, necesitamos comparar:</strong>
+                        <p class="mb-0 mt-2">Antes de usar el <code>if</code>, recuerda cómo comparar valores. El resultado siempre será un booleano (<code>True</code> o <code>False</code>).</p>
+                        <ul class="mb-0 mt-2">
+                            <li><code>==</code> (Igual a) <em>¡Ojo! Un solo <code>=</code> es para asignar variables, dos <code>==</code> son para comparar.</em></li>
+                            <li><code>!=</code> (Distinto de)</li>
+                            <li><code>></code> / <code><</code> (Mayor que / Menor que)</li>
+                            <li><code>>=</code> / <code><=</code> (Mayor o igual / Menor o igual)</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Sección: If y Else -->
+                <section class="mb-5">
+                    <h3 class="h4 text-info"><i class="bi bi-check2-circle"></i> Camino A o Camino B (<code>if</code> y <code>else</code>)</h3>
+                    <p>La estructura básica es preguntar si algo es verdadero (<code>if</code>). Si lo es, ejecutamos un bloque de código. Si no lo es (<code>else</code>), ejecutamos un bloque alternativo.</p>
+
+                    <pre class="bg-dark text-white rounded p-4"><code class="language-python">edad = int(input("¿Cuántos años tienes? "))
+
+if edad >= 18:
+    print("Eres mayor de edad.")
+else:
+    print("Eres menor de edad.")
+
+print("Este mensaje se imprime siempre, sin importar la edad.")</code></pre>
+                </section>
+
+                <!-- Sección: Elif -->
+                <section class="mb-5">
+                    <h3 class="h4 text-info"><i class="bi bi-list-nested"></i> Múltiples opciones con <code>elif</code></h3>
+                    <p>A veces, "blanco o negro" no es suficiente y necesitamos evaluar varias condiciones seguidas. <code>elif</code> significa "sino, si...". Puedes usar tantos <code>elif</code> como necesites, pero siempre van entre el <code>if</code> (que es el primero) y el <code>else</code> (que es el último, por si todo lo anterior falla).</p>
+                    
+                    <pre class="bg-dark text-white rounded p-4"><code class="language-python">nota = float(input("Ingresa tu calificación (1 al 7): "))
+
+if nota == 7:
+    print("¡Excelente, puntuación perfecta!")
+elif nota >= 4:
+    print("Muy bien, estás aprobado.")
+elif nota >= 3:
+    print("Casi, pero tienes que recuperar.")
+else:
+    print("Estás reprobado. ¡A estudiar más!")</code></pre>
+                </section>
+
+                <!-- Sección: Ejercicio Práctico -->
+                <div class="card border-info shadow-lg overflow-hidden mb-5">
+                    <div class="card-header bg-info text-dark py-3">
+                        <h4 class="mb-0"><i class="bi bi-pencil-square"></i> ¡Tu turno de practicar!</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <h5>El Desafío: "Cine Python"</h5>
+                        <p>Escribe un programa que pregunte al usuario su edad y determine el precio de su entrada de cine basándose en estas reglas:</p>
+                        <ul>
+                            <li>Si es menor de 12 años, la entrada cuesta <strong>$5</strong>.</li>
+                            <li>Si tiene entre 12 y 17 años (menor de 18), la entrada cuesta <strong>$7</strong>.</li>
+                            <li>Si tiene 18 años o más, la entrada cuesta <strong>$10</strong>.</li>
+                        </ul>
+                        <p>Al final, imprime el precio que debe pagar.</p>
+
+                        <!-- Botón para mostrar solución -->
+                        <div class="mt-4">
+                            <button class="btn btn-outline-info text-dark border-2" type="button" data-bs-toggle="collapse" data-bs-target="#solucionIf" aria-expanded="false" aria-controls="solucionIf">
+                                <i class="bi bi-eye"></i> Ver Solución
+                            </button>
+                        </div>
+
+                        <!-- Caja de la solución -->
+                        <div class="collapse mt-3" id="solucionIf">
+                            <div class="card border-0 shadow-sm">
+                                <div class="bg-dark bg-gradient px-3 py-2 text-white-50 small rounded-top border-bottom border-secondary">
+                                    <i class="bi bi-file-earmark-code"></i> solucion.py
+                                </div>
+                                <pre class="bg-dark text-white m-0 p-4 rounded-bottom"><code class="language-python">edad = int(input("¡Bienvenido al cine! ¿Cuántos años tienes? "))
+
+if edad < 12:
+    precio = 5
+elif edad < 18:
+    precio = 7
+else:
+    precio = 10
+
+print(f"El precio de tu entrada es de ${precio}.")</code></pre>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center py-4 bg-white border-top">
+        <p class="mb-0 text-muted">Parte de aprendizaje de Python - 2026</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+</body>
+</html>

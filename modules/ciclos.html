@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciclos While y For - Python Academy</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Prism.js para colores en el código -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="bg-light">
+
+    <!-- Navegación -->
+    <nav class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="bi bi-arrow-left-circle me-2"></i> Volver al Inicio
+            </a>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                
+                <!-- Encabezado de Lección -->
+                <div class="mb-4">
+                    <span class="badge bg-success mb-2">Parte 2</span>
+                    <h1 class="display-5 fw-bold text-dark">Ciclos: While y For</h1>
+                    <p class="lead text-muted">Aprende a repetir tareas automáticamente y a controlar el flujo de tu programa.</p>
+                </div>
+
+                <!-- Introducción -->
+                <section class="mb-4">
+                    <p>Imagina que tienes que imprimir los números del 1 al 100. Podrías escribir <code>print(1)</code>, <code>print(2)</code>... ¡cien veces! O podrías usar un <strong>ciclo</strong> (también llamado bucle o <em>loop</em>) para decirle a Python: <em>"Haz esto 100 veces por mí"</em>.</p>
+                </section>
+
+                <!-- Sección: Ciclo WHILE -->
+                <section class="mb-5">
+                    <h3 class="h4 text-success"><i class="bi bi-arrow-clockwise"></i> El ciclo <code>while</code></h3>
+                    <p>Usamos un ciclo <code>while</code> (que en español significa "mientras") cuando queremos que el código se repita <strong>mientras una condición sea verdadera</strong>. No sabemos exactamente cuántas veces va a ejecutarse, ya que depende de lo que pase en el programa.</p>
+
+                    <div class="alert alert-warning border-0 shadow-sm">
+                        <i class="bi bi-exclamation-triangle-fill"></i> <strong>¡Cuidado con los bucles infinitos!</strong> Si la condición del <code>while</code> nunca se vuelve falsa, tu programa se quedará atascado repitiendo para siempre.
+                    </div>
+
+                    <pre class="bg-dark text-white rounded p-4"><code class="language-python"># Una cuenta regresiva con while
+contador = 5
+
+print("Comenzando la cuenta regresiva:")
+
+while contador > 0:
+    print(contador)
+    contador = contador - 1  # ¡Crucial! Le restamos 1 para que en algún momento llegue a 0
+
+print("¡Despegue!")</code></pre>
+                </section>
+
+                <!-- NUEVA SECCIÓN: BREAK -->
+                <section class="mb-5">
+                    <h3 class="h4 text-success"><i class="bi bi-stop-circle"></i> Detener ciclos: <code>break</code></h3>
+                    <p>A veces queremos detener un ciclo antes de que su condición se vuelva falsa, o queremos crear un ciclo infinito a propósito (<code>while True</code>) y detenerlo solo cuando pase algo específico. Para eso usamos la instrucción <strong><code>break</code></strong>.</p>
+                    
+                    
+
+                    <pre class="bg-dark text-white rounded p-4"><code class="language-python"># Ciclo infinito controlado por un break
+while True:
+    respuesta = input("Escribe 'salir' para detener el programa: ")
+    
+    if respuesta == "salir":
+        print("Deteniendo el programa...")
+        break  # Esto rompe el ciclo y salta a la línea de abajo
+    else:
+        print(f"Escribiste {respuesta}. Seguimos atrapados en el ciclo.")
+
+print("¡Saliste del ciclo con éxito!")</code></pre>
+                </section>
+
+                <!-- Sección: Ciclo FOR -->
+                <section class="mb-5">
+                    <h3 class="h4 text-success"><i class="bi bi-123"></i> El ciclo <code>for</code></h3>
+                    <p>Una vez que entiendes el <code>while</code>, el <code>for</code> te resultará muy cómodo. Lo usamos cuando <strong>sabemos exactamente cuántas veces</strong> queremos repetir algo, o cuando queremos recorrer los elementos de una colección (como una lista).</p>
+
+                    <div class="alert alert-success border-0 shadow-sm">
+                        <i class="bi bi-lightbulb-fill text-success"></i> <strong>El truco de <code>range()</code>:</strong> En Python, la función <code>range(3)</code> genera una secuencia de 3 números (0, 1 y 2). Es el mejor compañero del ciclo <code>for</code>.
+                    </div>
+
+                    <pre class="bg-dark text-white rounded p-4"><code class="language-python"># Repetir algo 3 veces usando range()
+print("Comenzando el ciclo for:")
+
+for numero in range(3):
+    print(f"Esta es la repetición número {numero}")
+    
+print("¡Ciclo terminado!")</code></pre>
+                </section>
+
+                <!-- Sección: Ejercicio Práctico -->
+                <div class="card border-success shadow-lg overflow-hidden mb-5">
+                    <div class="card-header bg-success text-white py-3">
+                        <h4 class="mb-0"><i class="bi bi-pencil-square"></i> ¡Tu turno de practicar!</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <h5>El Desafío: "El guardia de seguridad"</h5>
+                        <p>Escribe un programa usando un ciclo <code>while True</code> y la instrucción <code>break</code> que actúe como una contraseña.</p>
+                        <ul>
+                            <li>El programa debe pedirle al usuario repetidamente que ingrese la palabra secreta.</li>
+                            <li>Si el usuario escribe "python123", el programa le da la bienvenida y <strong>rompe el ciclo</strong>.</li>
+                            <li>Si escribe otra cosa, le avisa que es incorrecto y le vuelve a preguntar.</li>
+                        </ul>
+
+                        <!-- Botón para mostrar solución -->
+                        <div class="mt-4">
+                            <button class="btn btn-outline-success" type="button" data-bs-toggle="collapse" data-bs-target="#solucionCiclos" aria-expanded="false" aria-controls="solucionCiclos">
+                                <i class="bi bi-eye"></i> Ver Solución
+                            </button>
+                        </div>
+
+                        <!-- Caja de la solución -->
+                        <div class="collapse mt-3" id="solucionCiclos">
+                            <div class="card border-0 shadow-sm">
+                                <div class="bg-dark bg-gradient px-3 py-2 text-white-50 small rounded-top border-bottom border-secondary">
+                                    <i class="bi bi-file-earmark-code"></i> solucion.py
+                                </div>
+                                <pre class="bg-dark text-white m-0 p-4 rounded-bottom"><code class="language-python"># Iniciamos un ciclo infinito
+while True:
+    palabra_secreta = input("Ingresa la contraseña para entrar: ")
+    
+    if palabra_secreta == "python123":
+        print("¡Acceso concedido! Bienvenido al sistema.")
+        break  # Rompemos el ciclo porque adivinó la clave
+    else:
+        print("Contraseña incorrecta, intenta de nuevo.\n")</code></pre>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center py-4 bg-white border-top">
+        <p class="mb-0 text-muted">Parte de aprendizaje de Python - 2026</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+</body>
+</html>

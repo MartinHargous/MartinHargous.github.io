@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones y Recursividad - Python Academy</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Prism.js para colores en el código -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="bg-light">
+
+    <!-- Navegación -->
+    <nav class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="bi bi-arrow-left-circle me-2"></i> Volver al Inicio
+            </a>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                
+                <!-- Encabezado de Lección -->
+                <div class="mb-4">
+                    <span class="badge bg-danger mb-2">Parte 4</span>
+                    <h1 class="display-5 fw-bold text-dark">Funciones y Recursividad</h1>
+                    <p class="lead text-muted">Aprende a empaquetar tu código para reutilizarlo y resolver problemas complejos.</p>
+                </div>
+
+                <!-- Sección: ¿Qué es una Función? -->
+                <section class="mb-5">
+                    <h3 class="h4 text-danger"><i class="bi bi-person-raised-hand"></i> Funciones: Tu amigo el ayudante</h3>
+                    <p>Imagina que tienes un amigo muy inteligente llamado <strong>Calculadora</strong>. Si de la nada le gritas: <em>"¡Suma!"</em>, tu amigo te va a mirar confundido y te dirá: <em>"¿Sumar qué? Necesito los números"</em>.</p>
+                    <p>En programación, una <strong>función</strong> es como ese amigo al que le encargas una tarea. Para que pueda hacerla, necesitas darle <strong>contexto</strong>. Ese contexto se lo entregas a través de los paréntesis <code>()</code> y se llaman <strong>parámetros</strong>.</p>
+
+                    <div class="alert alert-danger border-0 shadow-sm text-dark bg-opacity-10">
+                        <i class="bi bi-lightbulb-fill text-danger"></i> <strong>Sintaxis:</strong> Usamos la palabra <code>def</code> (de definir) para crear a nuestro "amigo", le ponemos un nombre, y entre paréntesis le decimos qué información necesita para trabajar.
+                    </div>
+
+                    <pre class="bg-dark text-white rounded p-4"><code class="language-python"># 1. Creamos a nuestro amigo "sumar_amigo" y le decimos que necesita dos números
+def sumar_amigo(numero1, numero2):
+    resultado = numero1 + numero2
+    # El 'return' es cuando tu amigo te entrega un papelito con el resultado final
+    return resultado
+
+# 2. Le pedimos a nuestro amigo que trabaje dándole el contexto (5 y 3)
+mi_suma = sumar_amigo(5, 3)
+
+# 3. Ahora podemos hacer lo que queramos con ese resultado
+print(f"Mi amigo me devolvió el número: {mi_suma}")</code></pre>
+                </section>
+
+                <!-- Sección: Return vs Print -->
+                <section class="mb-5">
+                    <h3 class="h4 text-danger"><i class="bi bi-box-arrow-right"></i> La diferencia entre <code>print()</code> y <code>return</code></h3>
+                    <p>Este es el error más común: pensar que imprimir es lo mismo que devolver.</p>
+                    <ul>
+                        <li><code>print()</code> es como si tu amigo gritara el resultado para que todos lo escuchen. Tú no puedes guardar un grito en tu bolsillo.</li>
+                        <li><code>return</code> es como si tu amigo escribiera el resultado en un papel y te lo entregara en la mano. Ese papel sí lo puedes guardar en una variable para usarlo más tarde.</li>
+                    </ul>
+                </section>
+
+                <!-- EJERCICIO 1: FUNCIONES -->
+                <div class="card border-danger shadow-sm overflow-hidden mb-5">
+                    <div class="card-header bg-danger text-white py-2">
+                        <h5 class="mb-0"><i class="bi bi-pencil-square"></i> Práctica 1: El Cajero Automático</h5>
+                    </div>
+                    <div class="card-body p-4">
+                        <p>Crea un script en Python que haga lo siguiente:</p>
+                        <ol>
+                            <li>Crea una función llamada <code>aplicar_descuento</code> que reciba dos parámetros: <code>precio_original</code> y <code>descuento</code>.</li>
+                            <li>La función debe calcular cuánto dinero se descuenta, restárselo al precio original, y hacer un <code>return</code> del precio final.</li>
+                            <li>Fuera de la función, crea una variable llamada <code>precio_televisor</code> con el valor 1000.</li>
+                            <li>Usa tu función para aplicarle un descuento de 200, guarda el resultado en una variable e imprímelo.</li>
+                        </ol>
+
+                        <div class="mt-3">
+                            <button class="btn btn-outline-danger border-2 fw-bold btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#solucionFunciones" aria-expanded="false" aria-controls="solucionFunciones">
+                                <i class="bi bi-eye"></i> Ver Solución
+                            </button>
+                        </div>
+
+                        <div class="collapse mt-3" id="solucionFunciones">
+                            <div class="card border-0 shadow-sm">
+                                <div class="bg-dark bg-gradient px-3 py-2 text-white-50 small rounded-top border-bottom border-secondary">
+                                    <i class="bi bi-file-earmark-code"></i> solucion_funciones.py
+                                </div>
+                                <pre class="bg-dark text-white m-0 p-3 rounded-bottom"><code class="language-python"># 1 y 2. Definimos la función y le pasamos sus parámetros (contexto)
+def aplicar_descuento(precio_original, descuento):
+    precio_final = precio_original - descuento
+    return precio_final  # Entregamos el papelito con el resultado
+
+# 3. Definimos nuestro precio
+precio_televisor = 1000
+
+# 4. Llamamos a nuestro "amigo" para que haga el cálculo
+precio_a_pagar = aplicar_descuento(precio_televisor, 200)
+
+print(f"El televisor costaba ${precio_televisor}.")
+print(f"Con el descuento, debes pagar: ${precio_a_pagar}")</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sección: Recursividad -->
+                <section class="mb-5">
+                    <h3 class="h4 text-danger"><i class="bi bi-infinity"></i> Recursividad: Una función que se llama a sí misma</h3>
+                    <p>La recursividad suena a magia negra, pero es simple: es cuando <strong>una función se utiliza a sí misma</strong> dentro de su propio código para resolver un problema más pequeño.</p>
+                    
+                    <p>Para que esto no se repita para siempre (como un espejo frente a otro espejo), toda función recursiva <strong>debe tener un caso base</strong> (una condición donde se detiene).</p>
+
+                    <pre class="bg-dark text-white rounded p-4 mb-4"><code class="language-python"># Ejemplo de recursividad: Cuenta regresiva
+def cuenta_regresiva(numero):
+    if numero == 0:  # ¡Este es el CASO BASE! Aquí se detiene la recursión.
+        print("¡Despegue!")
+    else:
+        print(numero)
+        # La función se llama a sí misma, pero pasándole un número más pequeño
+        cuenta_regresiva(numero - 1)
+
+# Llamamos a la función
+cuenta_regresiva(5)</code></pre>
+
+                    <!-- EJERCICIO 2: RECURSIVIDAD Y FIBONACCI -->
+                    <div class="card border-danger shadow-sm overflow-hidden mt-4">
+                        <div class="card-header bg-danger text-white py-2">
+                            <h5 class="mb-0"><i class="bi bi-braces"></i> Práctica 2: El Clásico Fibonacci</h5>
+                        </div>
+                        <div class="card-body p-4">
+                            
+                            <p class="mt-3">La secuencia de Fibonacci es una serie de números donde <strong>el siguiente número es la suma de los dos anteriores</strong>: <code>0, 1, 1, 2, 3, 5, 8, 13...</code></p>
+                            <p>Tu objetivo es crear una función recursiva llamada <code>fibonacci(n)</code> que te devuelva el número que está en la posición <code>n</code> de la secuencia.</p>
+                            
+                            <hr>
+                            <p class="mb-0 fw-bold">Pistas de los Casos Base:</p>
+                            <ul class="text-muted small">
+                                <li>Si <code>n</code> es 0, debe devolver 0.</li>
+                                <li>Si <code>n</code> es 1, debe devolver 1.</li>
+                                <li>Si es mayor, debe devolver la suma de sí misma llamando a <code>(n - 1)</code> y <code>(n - 2)</code>.</li>
+                            </ul>
+
+                            <div class="mt-3">
+                                <button class="btn btn-outline-danger border-2 fw-bold btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#solucionFibonacci" aria-expanded="false" aria-controls="solucionFibonacci">
+                                    <i class="bi bi-eye"></i> Ver Solución Recursiva
+                                </button>
+                            </div>
+
+                            <div class="collapse mt-3" id="solucionFibonacci">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="bg-dark bg-gradient px-3 py-2 text-white-50 small rounded-top border-bottom border-secondary">
+                                        <i class="bi bi-file-earmark-code"></i> solucion_fibonacci.py
+                                    </div>
+                                    <pre class="bg-dark text-white m-0 p-3 rounded-bottom"><code class="language-python">def fibonacci(n):
+    # Casos base (para que la recursión se detenga)
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    # Caso recursivo: sumamos los dos números anteriores de la secuencia
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
+
+# Probamos la función pidiendo el número en la posición 6 (debe dar 8)
+resultado = fibonacci(6)
+print(f"El número en la posición 6 de la secuencia es: {resultado}")</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center py-4 bg-white border-top">
+        <p class="mb-0 text-muted">Parte de aprendizaje de Python - 2026</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+</body>
+</html>

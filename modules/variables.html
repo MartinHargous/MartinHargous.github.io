@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables y Tipos - Python Course</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Prism.js para colores en el código -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css">
+
+</head>
+<body class="bg-light">
+
+    <!-- Navegación Simple -->
+    <nav class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="bi bi-arrow-left-circle me-2"></i> Volver al Inicio
+            </a>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                
+                <!-- Encabezado de Lección -->
+                <div class="mb-4">
+                    <span class="badge bg-primary mb-2">Parte 1</span>
+                    <h1 class="display-5 fw-bold text-dark">Variables y Tipos de Datos</h1>
+                    <p class="lead text-muted">Aprende cómo almacenar información y qué formas puede tomar en Python.</p>
+                </div>
+
+                <!-- Sección: ¿Qué es una variable? -->
+                <section class="mb-5">
+                    <h3 class="h4 text-primary"><i class="bi bi-info-circle"></i> ¿Qué es una variable?</h3>
+                    <p>Imagina una variable como una <strong>caja etiquetada</strong> donde guardas un valor. En Python, no necesitas especificar qué tipo de caja es; el lenguaje se da cuenta solo (esto se llama tipado dinámico).</p>
+                    
+                    <div class="alert alert-info border-0 shadow-sm">
+                        <strong>¿Cómo se define?</strong>
+                        <p class="mb-0">El nombre de la variable va a la izquierda, el signo <code>=</code> en medio, y el valor a la derecha.</p>
+                    </div>
+                </section>
+
+                <!-- SECCIÓN MEJORADA: Print e Input -->
+                <section class="mb-5">
+                    <h3 class="h4 text-primary"><i class="bi bi-terminal-fill"></i> Hablando con el usuario: print() e input()</h3>
+                    <p>Para que tus programas no sean aburridos, necesitas comunicarte con la persona que los usa. Para eso usamos dos funciones fundamentales:</p>
+                    
+                    <ul class="list-group list-group-flush mb-4 shadow-sm rounded border">
+                        <li class="list-group-item"><strong><code>print()</code></strong>: Sirve para "imprimir" o mostrar mensajes y variables en la pantalla.</li>
+                        <li class="list-group-item"><strong><code>input()</code></strong>: Sirve para pedirle al usuario que escriba algo con su teclado. Lo que escriba, lo puedes guardar directamente en una variable.</li>
+                    </ul>
+
+                    <div class="alert alert-warning border-0 shadow-sm">
+                        <i class="bi bi-exclamation-triangle-fill"></i> <strong>Importante:</strong> Todo lo que el usuario escribe usando <code>input()</code>, Python lo interpreta como texto (<code>str</code>).
+                    </div>
+
+                    <h5 class="mt-4 text-secondary">¿Cómo mezclar texto y variables en un print?</h5>
+                    <p>Tienes dos formas principales de hacerlo:</p>
+
+                    <div class="card mb-4 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-2 text-primary">1. Usando comas (,)</h6>
+                            <p class="card-text text-muted small">Python unirá automáticamente todo poniendo un espacio entre cada elemento.</p>
+                            <pre class="bg-dark text-white rounded p-3 mb-0"><code class="language-python">nombre = "Ana"
+edad = 25
+print("Hola", nombre, "tienes", edad, "años.") 
+# Resultado: Hola Ana tienes 25 años.</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-2 text-primary">2. Usando f-strings (¡La más recomendada!)</h6>
+                            <p class="card-text text-muted small">Pones una <code>f</code> antes de las comillas y encierras las variables entre llaves <code>{}</code>. Es mucho más limpio de leer.</p>
+                            <pre class="bg-dark text-white rounded p-3 mb-0"><code class="language-python">nombre = "Ana"
+edad = 25
+print(f"Hola {nombre}, tienes {edad} años.")
+# Resultado: Hola Ana, tienes 25 años.</code></pre>
+                        </div>
+                    </div>
+
+                    <pre class="bg-dark text-white rounded p-4 mt-4"><code class="language-python"># Ejemplo completo juntando todo:
+nombre_visitante = input("¿Cuál es tu nombre? ")
+print(f"¡Bienvenido a la academia de Python, {nombre_visitante}!")</code></pre>
+                </section>
+
+                <!-- Sección: Tipos de Datos -->
+                <section class="mb-5">
+                    <h3 class="h4 text-primary"><i class="bi bi-list-check"></i> Tipos de Datos Principales</h3>
+                    <div class="table-responsive">
+                        <table class="table table-hover bg-white border rounded shadow-sm">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Tipo</th>
+                                    <th>Nombre</th>
+                                    <th>Ejemplo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>int</code></td>
+                                    <td>Numero Entero</td>
+                                    <td><code>edad = 25</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>float</code></td>
+                                    <td>Decimal</td>
+                                    <td><code>precio = 19.99</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>str</code></td>
+                                    <td>Texto (String)</td>
+                                    <td><code>nombre = "Python"</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>bool</code></td>
+                                    <td>
+                                        Booleano
+                                        <br>
+                                        <small class="text-muted">Representa un estado lógico: Verdadero (True) o Falso (False).</small>
+                                    </td>
+                                    <td><code>es_valido = True</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Sección: Ejemplo de Código -->
+                <section class="mb-5">
+                    <h3 class="h4 text-primary"><i class="bi bi-code-square"></i> Ejemplo:</h3>
+                    
+                    <pre class="bg-dark text-white rounded p-4"><code class="language-python"># Definimos diferentes tipos de datos
+usuario_nombre = "Martin"    # Esto es un str (cadena de texto)
+usuario_edad = 22            # Esto es un int (numero entero)
+pago_realizado = True        # Esto es un bool
+
+# Imprimimos usando f-strings (muy útil)
+print(f"Hola {usuario_nombre}, tu edad es {usuario_edad}")
+
+# Podemos cambiar el valor cuando queramos
+usuario_edad = int(input("Ingresa tu nueva edad: ")) # usamos int() para definir la edad como un numero entero
+print(f"Feliz cumpleaños, ahora tienes {usuario_edad} años.")</code></pre>
+                </section>
+                
+                <!-- Sección: Ejercicio Práctico -->
+                <div class="card border-primary shadow-lg overflow-hidden">
+                    <div class="card-header bg-primary text-white py-3">
+                        <h4 class="mb-0"><i class="bi bi-pencil-square"></i> ¡Tu turno de practicar!</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <h5>El Desafío: "Ficha de Producto"</h5>
+                        <p>Crea un script en Python que pregunte al usuario las siguientes variables para un producto de tecnología:</p>
+                        <ul>
+                            <li><strong>nombre_producto</strong> (usa <code>input()</code> para pedirlo)</li>
+                            <li><strong>precio_original</strong> (conviértelo a decimal usando <code>float()</code>)</li>
+                            <li><strong>stock_disponible</strong> (conviértelo a entero usando <code>int()</code>)</li>
+                            <li><strong>en_oferta</strong> (un booleano, defínelo como <code>True</code> o <code>False</code> directamente)</li>
+                        </ul>
+                        <hr>
+                        <p class="mb-0 fw-bold">Pista:</p>
+                        <small class="text-muted">Usa la función <code>print()</code> para mostrar toda la información del producto al final usando f-strings.</small>
+
+                        <!-- Botón para mostrar solución -->
+                        <div class="mt-4">
+                            <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#solucionFicha" aria-expanded="false" aria-controls="solucionFicha">
+                                <i class="bi bi-eye"></i> Ver Solución
+                            </button>
+                        </div>
+
+                        <!-- Caja de la solución (oculta por defecto) -->
+                        <div class="collapse mt-3" id="solucionFicha">
+                            <div class="card border-0 shadow-sm">
+                                <div class="bg-dark bg-gradient px-3 py-2 text-white-50 small rounded-top border-bottom border-secondary">
+                                    <i class="bi bi-file-earmark-code"></i> solucion.py
+                                </div>
+                                <pre class="bg-dark text-white m-0 p-4 rounded-bottom"><code class="language-python"># 1. Pedimos los datos al usuario (y convertimos los tipos de datos)
+nombre_producto = input("¿Cuál es el nombre del producto? ")
+precio_original = float(input("¿Cuál es el precio? "))
+stock_disponible = int(input("¿Cuánto stock hay disponible? "))
+en_oferta = True  # Esto lo definimos manualmente por ahora
+
+# 2. Mostramos el resultado en pantalla
+print("\n--- FICHA DEL PRODUCTO ---")
+print(f"Producto: {nombre_producto}")
+print(f"Precio: ${precio_original}")
+print(f"Stock: {stock_disponible} unidades")
+print(f"¿En oferta?: {en_oferta}")</code></pre>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center py-4 bg-white border-top">
+        <p class="mb-0 text-muted">Parte de aprendizaje de Python - 2026</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listas y Diccionarios - Python Academy</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Prism.js para colores en el código -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="bg-light">
+
+    <!-- Navegación -->
+    <nav class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="bi bi-arrow-left-circle me-2"></i> Volver al Inicio
+            </a>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                
+                <!-- Encabezado de Lección -->
+                <div class="mb-4">
+                    <span class="badge bg-warning text-dark mb-2">Parte 3</span>
+                    <h1 class="display-5 fw-bold text-dark">Estructuras de Datos</h1>
+                    <p class="lead text-muted">Aprende a organizar y agrupar grandes cantidades de información usando Listas y Diccionarios.</p>
+                </div>
+
+                <!-- Introducción -->
+                <section class="mb-4">
+                    <p>Hasta ahora, cada variable guardaba un solo dato (como <code>edad = 25</code>). Pero, ¿qué pasa si queremos guardar las edades de 100 estudiantes? ¿O toda la información de un usuario (nombre, correo, edad) junta? Para eso existen las estructuras de datos.</p>
+                </section>
+
+                <!-- Sección: Listas -->
+                <section class="mb-5">
+                    <h3 class="h4 text-warning-emphasis"><i class="bi bi-list-ol"></i> Listas (Arrays)</h3>
+                    <p>Una lista es una colección <strong>ordenada</strong> de elementos. Imagínala como un estante con casilleros numerados. Puedes guardar lo que quieras dentro, separados por comas y encerrados entre corchetes <code>[]</code>.</p>
+
+                    <div class="alert alert-warning border-0 shadow-sm text-dark">
+                        <i class="bi bi-exclamation-triangle-fill"></i> <strong>Regla de oro de la programación:</strong> ¡Se empieza a contar desde el cero! El primer elemento de una lista está en la posición (índice) <code>0</code>, el segundo en el <code>1</code>, y así sucesivamente.
+                    </div>
+
+                    <pre class="bg-dark text-white rounded p-4 mb-4"><code class="language-python"># Crear una lista de frutas
+frutas = ["Manzana", "Platano", "Naranja"]
+
+# Imprimir toda la lista de golpe
+print(frutas)
+
+# Acceder a un elemento específico (el primero)
+print(f"Mi fruta favorita es la {frutas[0]}")
+
+# Agregar un nuevo elemento al final de la lista con .append()
+frutas.append("Uva")
+print("Lista actualizada:", frutas)</code></pre>
+
+                    <!-- SUBSECCIÓN: Recorrer listas con FOR -->
+                    <h5 class="mt-4 text-warning-emphasis"><i class="bi bi-arrow-repeat"></i> El poder del ciclo For con las Listas</h5>
+                    <p>¿Recuerdas el ciclo <code>for</code> que vimos antes? Su uso más común y poderoso en Python es <strong>recorrer listas</strong>. En lugar de imprimir cada elemento uno por uno usando índices (<code>frutas[0]</code>, <code>frutas[1]</code>...), podemos hacer que Python lo haga automáticamente.</p>
+
+                    <pre class="bg-dark text-white rounded p-4 mb-4"><code class="language-python">frutas = ["Manzana", "Platano", "Naranja", "Uva"]
+
+# Le decimos a Python: "Por cada 'fruta' individual dentro de la lista 'frutas', haz esto:"
+for fruta in frutas:
+    print(f"Me gusta comer {fruta}")
+    
+# Salida:
+# Me gusta comer Manzana
+# Me gusta comer Platano
+# ... y así con todas.</code></pre>
+
+                    <!-- EJERCICIO DE LISTAS -->
+                    <div class="card border-warning shadow-sm overflow-hidden">
+                        <div class="card-header bg-warning text-dark py-2">
+                            <h5 class="mb-0"><i class="bi bi-pencil-square"></i> Práctica 1: Lista de Tareas</h5>
+                        </div>
+                        <div class="card-body p-4">
+                            <p>Crea un script en Python que haga lo siguiente:</p>
+                            <ol>
+                                <li>Crea una lista llamada <code>tareas</code> con tres cosas que debas hacer hoy.</li>
+                                <li>Usa <code>.append()</code> para agregar una cuarta tarea a la lista.</li>
+                                <li>Imprime un mensaje que diga cuál es la <strong>primera tarea</strong> de tu lista (usando su índice).</li>
+                                <li>Utiliza un <strong>ciclo <code>for</code></strong> para imprimir todas tus tareas una por una en forma de lista vertical.</li>
+                            </ol>
+
+                            <div class="mt-3">
+                                <button class="btn btn-outline-warning text-dark border-2 fw-bold btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#solucionListas" aria-expanded="false" aria-controls="solucionListas">
+                                    <i class="bi bi-eye"></i> Ver Solución
+                                </button>
+                            </div>
+
+                            <div class="collapse mt-3" id="solucionListas">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="bg-dark bg-gradient px-3 py-2 text-white-50 small rounded-top border-bottom border-secondary">
+                                        <i class="bi bi-file-earmark-code"></i> solucion_listas.py
+                                    </div>
+                                    <pre class="bg-dark text-white m-0 p-3 rounded-bottom"><code class="language-python"># 1. Creamos la lista
+tareas = ["Estudiar Python", "Hacer ejercicio", "Comprar pan"]
+
+# 2. Agregamos una nueva tarea
+tareas.append("Pasear al perro")
+
+# 3. Imprimimos la primera tarea (índice 0)
+print(f"Lo primero que debo hacer es: {tareas[0]}\n")
+
+# 4. Imprimimos toda la lista usando un ciclo For
+print("Mis tareas para hoy son:")
+for tarea in tareas:
+    print(f"- {tarea}")</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sección: Diccionarios -->
+                <section class="mb-5">
+                    <h3 class="h4 text-warning-emphasis"><i class="bi bi-book"></i> Diccionarios</h3>
+                    <p>A diferencia de las listas, los diccionarios no usan números para encontrar sus elementos. Usan pares de <strong>clave-valor</strong>. Es igual que un diccionario real: buscas una palabra (la <em>clave</em>) para encontrar su significado (el <em>valor</em>). Se escriben entre llaves <code>{}</code>.</p>
+
+                    <pre class="bg-dark text-white rounded p-4 mb-4"><code class="language-python"># Crear un diccionario de un usuario
+usuario = {
+    "nombre": "Martin",
+    "edad": 22,
+    "rol": "Estudiante"
+}
+
+# Acceder a un valor usando su clave
+print(f"El usuario se llama {usuario['nombre']} y tiene {usuario['edad']} años.")
+
+# Agregar una nueva clave-valor al diccionario
+usuario["ciudad"] = "Santiago"
+print("Diccionario completo:", usuario)</code></pre>
+
+                    <!-- EJERCICIO DE DICCIONARIOS -->
+                    <div class="card border-warning shadow-sm overflow-hidden">
+                        <div class="card-header bg-warning text-dark py-2">
+                            <h5 class="mb-0"><i class="bi bi-pencil-square"></i> Práctica 2: Contacto de Emergencia</h5>
+                        </div>
+                        <div class="card-body p-4">
+                            <p>Crea un script donde definas un diccionario llamado <code>contacto</code>. Este diccionario debe tener:</p>
+                            <ul>
+                                <li>La clave <strong>"nombre"</strong> con el nombre de tu contacto.</li>
+                                <li>La clave <strong>"telefono"</strong> con su número.</li>
+                                <li>La clave <strong>"parentesco"</strong> (por ejemplo: "Hermano", "Madre", "Amigo").</li>
+                            </ul>
+                            <p>Luego, haz lo siguiente:</p>
+                            <ol>
+                                <li>Imprime un mensaje usando las claves para que diga algo como: <em>"Llamar a [nombre] al [telefono]"</em>.</li>
+                                <li>Agrega una nueva clave llamada <strong>"email"</strong> al diccionario y asígnale un correo.</li>
+                            </ol>
+
+                            <div class="mt-3">
+                                <button class="btn btn-outline-warning text-dark border-2 fw-bold btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#solucionDiccionarios" aria-expanded="false" aria-controls="solucionDiccionarios">
+                                    <i class="bi bi-eye"></i> Ver Solución
+                                </button>
+                            </div>
+
+                            <div class="collapse mt-3" id="solucionDiccionarios">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="bg-dark bg-gradient px-3 py-2 text-white-50 small rounded-top border-bottom border-secondary">
+                                        <i class="bi bi-file-earmark-code"></i> solucion_diccionarios.py
+                                    </div>
+                                    <pre class="bg-dark text-white m-0 p-3 rounded-bottom"><code class="language-python"># 1. Creamos el diccionario
+contacto = {
+    "nombre": "Lucas",
+    "telefono": "+56912345678",
+    "parentesco": "Amigo"
+}
+
+# 2. Imprimimos el mensaje accediendo a las claves
+print(f"En caso de emergencia, llamar a {contacto['nombre']} al {contacto['telefono']}")
+
+# 3. Agregamos el email
+contacto["email"] = "lucas@ejemplo.com"
+print("\nContacto actualizado:")
+print(contacto)</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- NUEVA SECCIÓN: MATRICES -->
+                <section class="mb-5">
+                    <h3 class="h4 text-warning-emphasis"><i class="bi bi-grid-3x3"></i> Matrices (Listas de Listas)</h3>
+                    <p>En Python, no estás limitado a guardar datos simples dentro de una lista. ¡Puedes guardar listas dentro de otras listas! Esto crea lo que conocemos como una <strong>Matriz</strong>, que es como una tabla o un tablero con <strong>filas y columnas</strong>.</p>
+                    
+                    <div class="alert alert-info border-0 shadow-sm text-dark">
+                        <i class="bi bi-lightbulb-fill"></i> <strong>¿Cómo ubicamos un elemento?</strong> Primero le decimos a Python en qué <strong>fila</strong> está, y luego en qué <strong>columna</strong>. Por ejemplo: <code>tablero[fila][columna]</code>. ¡Recuerda que ambos empiezan a contar desde 0!
+                    </div>
+
+                    <pre class="bg-dark text-white rounded p-4 mb-4"><code class="language-python"># Creamos una matriz 3x3 (como un teclado de celular)
+teclado = [
+    [1, 2, 3],  # Fila 0
+    [4, 5, 6],  # Fila 1
+    [7, 8, 9]   # Fila 2
+]
+
+# Si queremos acceder al número 6:
+# Está en la fila 1 (la segunda), y en la columna 2 (la tercera)
+numero = teclado[1][2]
+print(f"El número seleccionado es: {numero}")
+
+# También podemos imprimir una fila completa
+print(f"La primera fila es: {teclado[0]}")</code></pre>
+
+                    <!-- EJERCICIO DE MATRICES -->
+                    <div class="card border-warning shadow-sm overflow-hidden">
+                        <div class="card-header bg-warning text-dark py-2">
+                            <h5 class="mb-0"><i class="bi bi-pencil-square"></i> Práctica 3: El Centro del Tablero</h5>
+                        </div>
+                        <div class="card-body p-4">
+                            <p>Imagina que estás haciendo un juego de "Gato". Tienes el siguiente tablero vacío representado por guiones <code>"-"</code>:</p>
+                            
+                            <pre class="bg-light text-dark p-3 rounded mb-3 border"><code>tablero = [
+    ["-", "-", "-"],
+    ["-", "-", "-"],
+    ["-", "-", "-"]
+]</code></pre>
+                            <p>Tu misión es escribir un script que haga lo siguiente:</p>
+                            <ol>
+                                <li>Define el <code>tablero</code> en tu código.</li>
+                                <li>Modifica la lista para colocar una <strong>"X"</strong> exactamente en el <strong>centro</strong> del tablero.</li>
+                                <li>Coloca una <strong>"O"</strong> en la esquina inferior derecha.</li>
+                                <li>Usa un ciclo <code>for</code> para imprimir el tablero fila por fila y ver cómo quedó tu jugada.</li>
+                            </ol>
+
+                            <div class="mt-3">
+                                <button class="btn btn-outline-warning text-dark border-2 fw-bold btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#solucionMatrices" aria-expanded="false" aria-controls="solucionMatrices">
+                                    <i class="bi bi-eye"></i> Ver Solución
+                                </button>
+                            </div>
+
+                            <div class="collapse mt-3" id="solucionMatrices">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="bg-dark bg-gradient px-3 py-2 text-white-50 small rounded-top border-bottom border-secondary">
+                                        <i class="bi bi-file-earmark-code"></i> solucion_matrices.py
+                                    </div>
+                                    <pre class="bg-dark text-white m-0 p-3 rounded-bottom"><code class="language-python"># 1. Definimos el tablero inicial
+tablero = [
+    ["-", "-", "-"],
+    ["-", "-", "-"],
+    ["-", "-", "-"]
+]
+
+# 2. Colocamos la "X" en el centro (Fila 1, Columna 1)
+tablero[1][1] = "X"
+
+# 3. Colocamos la "O" en la esquina inferior derecha (Fila 2, Columna 2)
+tablero[2][2] = "O"
+
+# 4. Imprimimos el tablero ordenado
+print("Estado del juego:")
+for fila in tablero:
+    print(fila)</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center py-4 bg-white border-top">
+        <p class="mb-0 text-muted">Parte de aprendizaje de Python - 2026</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+</body>
+</html>

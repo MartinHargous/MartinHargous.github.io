@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolviendo Ejercicio - Python Academy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+
+    <!-- Navegación -->
+    <nav class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="ejercicios.html">
+                <i class="bi bi-arrow-left-circle me-2"></i> Volver a los ejercicios
+            </a>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                
+                <!-- Contenedor donde se inyectará el contenido -->
+                <div id="ejercicio-detalle">
+                    <div class="text-center my-5">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Cargando...</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+    <script>
+        // 1. Obtener el ID del ejercicio desde la URL
+        const parametrosURL = new URLSearchParams(window.location.search);
+        const ejercicioId = parseInt(parametrosURL.get('id'));
+
+        // 2. Cargar el JSON y buscar el ejercicio específico
+        fetch('ejercicios.json')
+            .then(respuesta => respuesta.json())
+            .then(datos => {
+                const ejercicio = datos.find(ej => ej.id === ejercicioId);
+                
+                if (ejercicio) {
+                    mostrarEjercicio(ejercicio);
+                } else {
+                    document.getElementById('ejercicio-detalle').innerHTML = `
+                        <div class="alert alert-danger text-center shadow-sm">
+                            <h4><i class="bi bi-exclamation-triangle"></i> Ejercicio no encontrado</h4>
+                            <p>Parece que el ejercicio que buscas no existe o el enlace es incorrecto.</p>
+                            <a href="ejercicios.html" class="btn btn-danger mt-3">Volver al listado</a>
+                        </div>`;
+                }
+            })
+            .catch(error => console.error("Error cargando el JSON:", error));
+
+        // 3. Función para dibujar el ejercicio
+        function mostrarEjercicio(ej) {
+            const contenedor = document.getElementById('ejercicio-detalle');
+            
+            let colorDificultad = ej.dificultad === "Fácil" ? "text-success" : 
+                                  ej.dificultad === "Medio" ? "text-warning" : "text-danger";
+
+            contenedor.innerHTML = `
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="badge bg-secondary">Ejercicio #${ej.id}</span>
+                    <span class="fw-bold ${colorDificultad}"><i class="bi bi-bar-chart-fill"></i> Nivel: ${ej.dificultad}</span>
+                </div>
+                
+                <h1 class="display-5 fw-bold text-dark mb-4">${ej.titulo}</h1>
+                
+                <div class="card shadow-sm border-0 mb-5">
+                    <div class="card-body p-4 p-md-5">
+                        <h4 class="text-primary mb-3"><i class="bi bi-list-task"></i> Instrucciones:</h4>
+                        <p class="lead fs-5">${ej.descripcion}</p>
+                        
+                        <div class="alert alert-info mt-4 border-0">
+                            <i class="bi bi-info-circle"></i> <strong>Tip:</strong> Abre tu editor de código (como VS Code o IDLE), intenta resolverlo por tu cuenta usando <code>input()</code> para interactuar con el usuario y luego compara tu resultado con la solución.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mb-4">
+                    <button class="btn btn-outline-dark btn-lg px-5 border-2 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#verSolucion" aria-expanded="false">
+                        <i class="bi bi-eye"></i> Revelar Solución
+                    </button>
+                </div>
+
+                <div class="collapse" id="verSolucion">
+                    <div class="card border-0 shadow-lg overflow-hidden">
+                        <div class="bg-dark bg-gradient px-4 py-3 text-white-50 small rounded-top border-bottom border-secondary d-flex justify-content-between">
+                            <span><i class="bi bi-file-earmark-code"></i> solucion.py</span>
+                            <span>Python 3</span>
+                        </div>
+                        <pre class="bg-dark text-white m-0 p-4 rounded-bottom fs-5"><code class="language-python">${ej.solucion}</code></pre>
+                    </div>
+                </div>
+            `;
+            
+            // Colorear el código inyectado
+            Prism.highlightAll();
+        }
+    </script>
+</body>
+</html>
