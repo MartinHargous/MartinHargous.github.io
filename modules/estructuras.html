@@ -76,8 +76,66 @@ for fruta in frutas:
 # Me gusta comer Manzana
 # Me gusta comer Platano
 # ... y así con todas.</code></pre>
+<h5 class="mt-5 text-warning-emphasis"><i class="bi bi-tools"></i> Métodos de Listas</h5>
+                    <p>Para interactuar o modificar los elementos, existen los <strong>métodos de lista</strong>. Son comandos integrados en Python que aplican cambios directos sobre la lista. Aquí tienes una tabla con los más utilizados y cómo transforman los datos:</p>
 
-                    <!-- EJERCICIO DE LISTAS -->
+                    <div class="table-responsive mb-5">
+                        <table class="table table-hover table-bordered shadow-sm align-middle bg-white">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">Método</th>
+                                    <th scope="col">¿Qué hace?</th>
+                                    <th scope="col">Lista Inicial</th>
+                                    <th scope="col">Código Aplicado</th>
+                                    <th scope="col">Resultado Final</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>.append(x)</code></td>
+                                    <td>Agrega el elemento <code>x</code> al <strong>final</strong> de la lista.</td>
+                                    <td><code>[1, 2]</code></td>
+                                    <td><code>lista.append(3)</code></td>
+                                    <td class="text-success fw-bold"><code>[1, 2, 3]</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>.insert(i, x)</code></td>
+                                    <td>Inserta el elemento <code>x</code> en la posición (índice) <code>i</code>.</td>
+                                    <td><code>["a", "c"]</code></td>
+                                    <td><code>lista.insert(1, "b")</code></td>
+                                    <td class="text-success fw-bold"><code>["a", "b", "c"]</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>.remove(x)</code></td>
+                                    <td>Elimina la <strong>primera aparición</strong> del elemento <code>x</code>.</td>
+                                    <td><code>[5, 8, 5]</code></td>
+                                    <td><code>lista.remove(5)</code></td>
+                                    <td class="text-success fw-bold"><code>[8, 5]</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>.pop()</code></td>
+                                    <td>Elimina y te devuelve el <strong>último</strong> elemento de la lista.</td>
+                                    <td><code>["x", "y", "z"]</code></td>
+                                    <td><code>lista.pop()</code></td>
+                                    <td class="text-success fw-bold"><code>["x", "y"]</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>.sort()</code></td>
+                                    <td>Ordena los elementos de menor a mayor (o alfabéticamente).</td>
+                                    <td><code>[3, 1, 2]</code></td>
+                                    <td><code>lista.sort()</code></td>
+                                    <td class="text-success fw-bold"><code>[1, 2, 3]</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>.reverse()</code></td>
+                                    <td>Invierte el orden actual de todos los elementos.</td>
+                                    <td><code>[7, 8, 9]</code></td>
+                                    <td><code>lista.reverse()</code></td>
+                                    <td class="text-success fw-bold"><code>[9, 8, 7]</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>                    <!-- EJERCICIO DE LISTAS -->
                     <div class="card border-warning shadow-sm overflow-hidden">
                         <div class="card-header bg-warning text-dark py-2">
                             <h5 class="mb-0"><i class="bi bi-pencil-square"></i> Práctica 1: Lista de Tareas</h5>

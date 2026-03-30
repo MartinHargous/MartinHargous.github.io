@@ -1,42 +1,162 @@
 [
     {
         "id": 1,
-        "titulo": "Calculadora de Edad",
-        "descripcion": "Pide al usuario su año de nacimiento e imprime su edad actual. Asume que estamos en el año 2026.",
+        "titulo": "Saludo Personalizado",
+        "descripcion": "Escribe un programa que pida el nombre del usuario y su edad.\nLuego, imprime un saludo personalizado usando f-strings.",
         "dificultad": "Fácil",
-        "categorias": ["Variables"],
-        "solucion": "anio_nacimiento = int(input('¿En qué año naciste? '))\nedad = 2026 - anio_nacimiento\nprint(f'Tienes {edad} años.')"
+        "categorias": ["Variables", "Input", "Print"],
+        "solucion": "nombre = input('Ingresa tu nombre: ')\nedad = int(input('Ingresa tu edad: '))\nprint(f'Hola {nombre}, es genial que tengas {edad} años.')"
     },
     {
         "id": 2,
-        "titulo": "Par o Impar",
-        "descripcion": "Pide un número al usuario y dile si es par o impar.",
+        "titulo": "Calculadora de Propinas",
+        "descripcion": "Pide al usuario el monto total de la cuenta del restaurante.\nCalcula y muestra en líneas separadas cuánto sería una propina del 10%, 15% y 20%.",
         "dificultad": "Fácil",
-        "categorias": ["Variables", "If"],
-        "solucion": "numero = int(input('Ingresa un número: '))\nif numero % 2 == 0:\n    print('Es par')\nelse:\n    print('Es impar')"
+        "categorias": ["Variables", "Print"],
+        "solucion": "total = float(input('Total de la cuenta: '))\nprint(f'Propina del 10%: {total * 0.10}')\nprint(f'Propina del 15%: {total * 0.15}')\nprint(f'Propina del 20%: {total * 0.20}')"
     },
     {
         "id": 3,
-        "titulo": "Buscador de Vocales",
-        "descripcion": "Pide una frase al usuario y cuenta cuántas vocales tiene en total.",
-        "dificultad": "Medio",
-        "categorias": ["Variables", "Ciclos", "If"],
-        "solucion": "frase = input('Ingresa una frase: ').lower()\ncontador = 0\nfor letra in frase:\n    if letra in 'aeiou':\n        contador += 1\nprint(f'La frase tiene {contador} vocales.')"
+        "titulo": "Clasificador de Edades",
+        "descripcion": "Pide al usuario su edad actual.\nSi es menor de 18, imprime 'Menor de edad'.\nSi tiene entre 18 y 65, imprime 'Adulto'.\nSi tiene más de 65, imprime 'Adulto mayor'.",
+        "dificultad": "Fácil",
+        "categorias": ["Variables", "If"],
+        "solucion": "edad = int(input('Ingresa tu edad: '))\nif edad < 18:\n    print('Menor de edad')\nelif edad <= 65:\n    print('Adulto')\nelse:\n    print('Adulto mayor')"
     },
     {
         "id": 4,
-        "titulo": "Inventario de Tienda",
-        "descripcion": "Crea un diccionario con 3 productos y sus precios. Luego, usa un ciclo for para aplicarle un 10% de descuento a todos e imprime el nuevo inventario.",
-        "dificultad": "Medio",
-        "categorias": ["Estructuras", "Ciclos"],
-        "solucion": "inventario = {'Manzana': 100, 'Pan': 500, 'Leche': 800}\nfor producto in inventario:\n    inventario[producto] = inventario[producto] * 0.9\nprint(f'Inventario con descuento: {inventario}')"
+        "titulo": "Contador de Palabras",
+        "descripcion": "Pide al usuario que ingrese una frase corta.\nUsa el método split() para separar las palabras y cuenta cuántas palabras tiene en total la frase.",
+        "dificultad": "Fácil",
+        "categorias": ["Listas", "Variables", "Print"],
+        "solucion": "frase = input('Escribe una frase: ')\npalabras = frase.split()\nprint(f'La frase tiene {len(palabras)} palabras.')"
     },
     {
         "id": 5,
-        "titulo": "Validador de Contraseñas Recursivo",
-        "descripcion": "Crea una función recursiva que pida una contraseña. Si la contraseña tiene menos de 8 caracteres, debe imprimir un error y volver a llamarse a sí misma hasta que el usuario ingrese una válida.",
+        "titulo": "Lista de Tareas",
+        "descripcion": "Crea una lista vacía.\nUsa un ciclo while para pedir al usuario que ingrese tareas pendientes.\nSi el usuario escribe 'salir', el ciclo termina.\nAl final, imprime todas las tareas guardadas en la lista.",
+        "dificultad": "Fácil",
+        "categorias": ["Listas", "Ciclos", "If"],
+        "solucion": "tareas = []\nwhile True:\n    tarea = input('Ingresa una tarea (o \"salir\" para terminar): ')\n    if tarea == 'salir':\n        break\n    tareas.append(tarea)\nprint(f'Tus tareas son: {tareas}')"
+    },
+    {
+        "id": 6,
+        "titulo": "Tabla de Multiplicar",
+        "descripcion": "Pide un número del 1 al 10 al usuario.\nUsa un ciclo for para imprimir la tabla de multiplicar de ese número (multiplicado del 1 al 10).",
+        "dificultad": "Fácil",
+        "categorias": ["Ciclos", "Print", "Variables"],
+        "solucion": "num = int(input('Ingresa un número: '))\nfor i in range(1, 11):\n    print(f'{num} x {i} = {num * i}')"
+    },
+    {
+        "id": 7,
+        "titulo": "Sistema de Autenticación Segura",
+        "descripcion": "Simula un login de cuenta.\nUsa un diccionario predefinido con nombres de usuario y contraseñas.\nPide al usuario sus credenciales en un ciclo. Si falla 3 veces seguidas, el programa debe bloquear al usuario (añadiéndolo a una lista) y terminar.\nSi acierta, muestra un mensaje de bienvenida y rompe el ciclo.",
+        "dificultad": "Medio",
+        "categorias": ["Diccionarios", "Listas", "Ciclos", "If"],
+        "solucion": "usuarios_bd = {'admin': '1234', 'martin': 'python2026'}\nbloqueados = []\nintentos = 0\n\nwhile intentos < 3:\n    user = input('Usuario: ')\n    pwd = input('Contraseña: ')\n    \n    if user in bloqueados:\n        print('Cuenta bloqueada.')\n        break\n        \n    if user in usuarios_bd and usuarios_bd[user] == pwd:\n        print(f'Bienvenido, {user}.')\n        break\n    else:\n        print('Credenciales incorrectas.')\n        intentos += 1\n        \nif intentos == 3:\n    bloqueados.append(user)\n    print('Demasiados intentos. Bloqueado por seguridad.')"
+    },
+    {
+        "id": 8,
+        "titulo": "Cajero Automático (ATM)",
+        "descripcion": "Crea un cajero bancario.\nUsa una variable para el saldo inicial y una lista vacía para el historial.\nImplementa un menú infinito con opciones: 1) Depositar, 2) Retirar, 3) Historial, 4) Salir.\nValida que el usuario no pueda retirar más de lo que tiene guardado.",
+        "dificultad": "Medio",
+        "categorias": ["Ciclos", "If", "Listas", "Variables"],
+        "solucion": "saldo = 1000.0\nhistorial = []\n\nwhile True:\n    opcion = input('\\n1. Depositar\\n2. Retirar\\n3. Historial\\n4. Salir\\nElija opción: ')\n    \n    if opcion == '4':\n        break\n    elif opcion == '1':\n        monto = float(input('Monto a depositar: '))\n        saldo += monto\n        historial.append(f'+${monto}')\n    elif opcion == '2':\n        monto = float(input('Monto a retirar: '))\n        if monto > saldo:\n            print('Fondos insuficientes.')\n        else:\n            saldo -= monto\n            historial.append(f'-${monto}')\n    elif opcion == '3':\n        print(f'Historial: {historial}\\nSaldo: ${saldo}')\n    else:\n        print('Opción no válida.')"
+    },
+    {
+        "id": 9,
+        "titulo": "Buscador de Contactos",
+        "descripcion": "Crea un diccionario con 3 nombres y números de teléfono predefinidos.\nPide al usuario un nombre a buscar.\nSi el nombre está en el diccionario, imprime su número. Si no, pide el número de ese contacto para agregarlo al diccionario.\nImprime el diccionario al final.",
+        "dificultad": "Medio",
+        "categorias": ["Diccionarios", "If", "Input"],
+        "solucion": "agenda = {'Ana': '111', 'Luis': '222', 'Marta': '333'}\nnombre = input('¿A quién buscas?: ')\n\nif nombre in agenda:\n    print(f'El número de {nombre} es {agenda[nombre]}')\nelse:\n    nuevo_num = input('Contacto no encontrado. Ingresa su número para guardarlo: ')\n    agenda[nombre] = nuevo_num\n    print('Contacto guardado.')\n\nprint(f'Agenda actualizada: {agenda}')"
+    },
+    {
+        "id": 10,
+        "titulo": "Validador de Contraseñas",
+        "descripcion": "Pide al usuario que cree una contraseña nueva.\nVerifica que tenga al menos 8 caracteres de largo y que contenga la letra 'a' o 'A'.\nSigue pidiendo la contraseña en un ciclo while hasta que cumpla ambas condiciones.",
+        "dificultad": "Medio",
+        "categorias": ["Ciclos", "If", "Variables"],
+        "solucion": "while True:\n    pwd = input('Crea una contraseña: ')\n    if len(pwd) >= 8 and ('a' in pwd or 'A' in pwd):\n        print('Contraseña válida y guardada.')\n        break\n    else:\n        print('Error: Debe tener al menos 8 caracteres y contener la letra A.')"
+    },
+    {
+        "id": 11,
+        "titulo": "Adivina el Número Oculto",
+        "descripcion": "Define un número secreto en una variable (por ejemplo, 42).\nPide al usuario que adivine el número. Si el número ingresado es mayor, imprime 'Es menor'. Si es menor, imprime 'Es mayor'.\nEl ciclo termina cuando el usuario adivina correctamente.",
+        "dificultad": "Medio",
+        "categorias": ["Ciclos", "If", "Variables"],
+        "solucion": "secreto = 42\nwhile True:\n    intento = int(input('Adivina el número: '))\n    if intento == secreto:\n        print('¡Acertaste! Ganaste el juego.')\n        break\n    elif intento > secreto:\n        print('El número oculto es menor.')\n    else:\n        print('El número oculto es mayor.')"
+    },
+    {
+        "id": 12,
+        "titulo": "Conversor de Monedas",
+        "descripcion": "Crea un diccionario con tasas de cambio (ej. {'USD': 800, 'EUR': 900}).\nPide al usuario una cantidad en pesos chilenos y a qué moneda extranjera quiere convertir.\nSi la moneda existe en el diccionario, muestra el resultado. Si no, muestra un error.",
+        "dificultad": "Medio",
+        "categorias": ["Diccionarios", "If", "Variables"],
+        "solucion": "tasas = {'USD': 800, 'EUR': 900, 'GBP': 1000}\npesos = float(input('Ingresa cantidad en CLP: '))\nmoneda = input('¿A qué moneda convierto? (USD/EUR/GBP): ').upper()\n\nif moneda in tasas:\n    convertido = pesos / tasas[moneda]\n    print(f'Total: {convertido} {moneda}')\nelse:\n    print('Moneda no soportada en el sistema.')"
+    },
+    {
+        "id": 13,
+        "titulo": "Filtrado de Números Pares",
+        "descripcion": "Escribe una función que reciba una lista de números enteros.\nLa función debe crear una nueva lista vacía, recorrer la original con un ciclo for, y guardar solo los números que sean pares.\nLa función debe retornar la nueva lista.",
+        "dificultad": "Medio",
+        "categorias": ["Funciones", "Listas", "Ciclos", "If"],
+        "solucion": "def filtrar_pares(lista_numeros):\n    pares = []\n    for n in lista_numeros:\n        if n % 2 == 0:\n            pares.append(n)\n    return pares\n\n# Prueba:\n# resultado = filtrar_pares([1, 2, 3, 4, 5, 6, 7, 8])\n# print(resultado)"
+    },
+    {
+        "id": 14,
+        "titulo": "Motor de Descuentos E-commerce",
+        "descripcion": "Escribe una función que reciba el 'carrito' de compras (una lista de diccionarios con 'producto', 'precio' y 'cantidad').\nCalcula el subtotal. Si el cliente lleva más de 5 artículos en total, aplica un 15% de descuento.\nRetorna un diccionario con el 'total_a_pagar' y una lista de 'nombres_productos'.",
         "dificultad": "Difícil",
-        "categorias": ["Funciones", "If"],
-        "solucion": "def pedir_password():\n    pwd = input('Crea una contraseña (mínimo 8 caracteres): ')\n    if len(pwd) < 8:\n        print('Error: muy corta.')\n        return pedir_password()\n    else:\n        print('¡Contraseña guardada!')\n        return pwd\n\npedir_password()"
+        "categorias": ["Funciones", "Listas", "Diccionarios", "Ciclos", "If"],
+        "solucion": "def procesar_pago(carrito):\n    subtotal = 0\n    total_articulos = 0\n    nombres = []\n    \n    for item in carrito:\n        subtotal += item['precio'] * item['cantidad']\n        total_articulos += item['cantidad']\n        nombres.append(item['producto'])\n        \n    if total_articulos > 5:\n        total = subtotal * 0.85\n    else:\n        total = subtotal\n        \n    return {'total_a_pagar': total, 'nombres_productos': nombres}\n\n# Prueba:\n# compra = [{'producto': 'Camisa', 'precio': 10000, 'cantidad': 6}]\n# print(procesar_pago(compra))"
+    },
+    {
+        "id": 15,
+        "titulo": "Gestor de Reservas de Teatro",
+        "descripcion": "Representa una sala como una matriz de 3x3 (lista de listas) inicializada con 'L' (Libre).\nPide fila y columna usando input. Usa métodos de string como .isdigit() para validar antes de convertir a entero.\nSi el asiento es 'L', cámbialo a 'O'. Si ya es 'O', advierte al usuario.\nTermina si escribe 'salir'.",
+        "dificultad": "Difícil",
+        "categorias": ["Listas", "Ciclos", "If", "Variables"],
+        "solucion": "sala = [['L', 'L', 'L'], ['L', 'L', 'L'], ['L', 'L', 'L']]\nwhile True:\n    for fila in sala:\n        print(fila)\n    ent = input('Fila (0-2) o \"salir\": ')\n    if ent == 'salir': break\n    col = input('Columna (0-2): ')\n    \n    if ent.isdigit() and col.isdigit():\n        f, c = int(ent), int(col)\n        if 0 <= f <= 2 and 0 <= c <= 2:\n            if sala[f][c] == 'L':\n                sala[f][c] = 'O'\n                print('Reserva exitosa.')\n            else:\n                print('Asiento ocupado.')\n        else:\n            print('Fuera de rango.')\n    else:\n        print('Debes ingresar números válidos.')"
+    },
+    {
+        "id": 16,
+        "titulo": "Sistema de Calificaciones",
+        "descripcion": "Crea un programa que pide nombres de alumnos y sus notas en un ciclo. Escribir '-1' termina de pedir notas, 'fin' termina de pedir alumnos.\nGuarda todo en un diccionario. Asegúrate de pedir la nota y evaluar si es '-1' antes de convertirla a float.\nLuego crea una función que calcule promedios y retorne los aprobados iterando por las llaves del diccionario.",
+        "dificultad": "Difícil",
+        "categorias": ["Funciones", "Diccionarios", "Listas", "Ciclos", "If"],
+        "solucion": "notas_dict = {}\nwhile True:\n    nombre = input('Alumno (o \"fin\"): ')\n    if nombre == 'fin': break\n    notas_dict[nombre] = []\n    while True:\n        nota_str = input('Nota (-1 para siguiente alumno): ')\n        if nota_str == '-1': break\n        notas_dict[nombre].append(float(nota_str))\n\ndef obtener_aprobados(diccionario):\n    res = []\n    for alumno in diccionario:\n        notas = diccionario[alumno]\n        if len(notas) > 0 and (sum(notas) / len(notas)) >= 4.0:\n            res.append(alumno)\n    return res\n\nprint(f'Aprobados: {obtener_aprobados(notas_dict)}')"
+    },
+    {
+        "id": 17,
+        "titulo": "Inventario de Tienda",
+        "descripcion": "Implementa un menú: 1) Agregar producto, 2) Vender producto, 3) Mostrar inventario, 4) Salir.\nUsa un diccionario donde la llave es el producto y el valor es el stock.\nAl vender, valida que el producto exista y haya stock suficiente. Si es exitoso, resta el stock.",
+        "dificultad": "Difícil",
+        "categorias": ["Diccionarios", "Ciclos", "If", "Input"],
+        "solucion": "inv = {}\nwhile True:\n    op = input('\\n1.Agregar 2.Vender 3.Ver 4.Salir: ')\n    if op == '4': break\n    elif op == '1':\n        prod = input('Nombre del producto: ')\n        cant = int(input('Cantidad a ingresar: '))\n        if prod in inv: inv[prod] += cant\n        else: inv[prod] = cant\n    elif op == '2':\n        prod = input('Nombre del producto: ')\n        if prod in inv and inv[prod] > 0:\n            cant = int(input('Cantidad a vender: '))\n            if cant <= inv[prod]:\n                inv[prod] -= cant\n                print('Venta exitosa.')\n            else:\n                print('Stock insuficiente.')\n        else:\n            print('No hay stock o producto no existe.')\n    elif op == '3': print(inv)"
+    },
+    {
+        "id": 18,
+        "titulo": "Frecuencia de Palabras",
+        "descripcion": "Pide al usuario un párrafo de texto.\nEscribe una función que reciba el texto, lo pase a minúsculas, separe las palabras y cuente cuántas veces aparece cada una.\nLa función debe retornar un diccionario con la palabra como llave y su frecuencia como valor.",
+        "dificultad": "Difícil",
+        "categorias": ["Funciones", "Diccionarios", "Listas", "Ciclos", "If"],
+        "solucion": "def contar_frecuencia(texto):\n    frecuencias = {}\n    palabras = texto.lower().split()\n    for p in palabras:\n        if p in frecuencias:\n            frecuencias[p] += 1\n        else:\n            frecuencias[p] = 1\n    return frecuencias\n\nparrafo = input('Ingrese un párrafo: ')\nresultado = contar_frecuencia(parrafo)\nprint(f'Frecuencias: {resultado}')"
+    },
+    {
+        "id": 19,
+        "titulo": "Gestión de Biblioteca",
+        "descripcion": "Crea dos listas: 'disponibles' (inicia con 3 libros) y 'prestados' (vacía).\nEn un ciclo, pregunta si el usuario quiere 'prestar', 'devolver' o 'salir'.\nSi presta, verifica que el libro esté disponible y muévelo a prestados.\nSi devuelve, verifica que esté prestado y muévelo a disponibles.",
+        "dificultad": "Difícil",
+        "categorias": ["Listas", "Ciclos", "If", "Variables"],
+        "solucion": "disp = ['Libro A', 'Libro B', 'Libro C']\nprestados = []\nwhile True:\n    acc = input('¿prestar, devolver o salir?: ').lower()\n    if acc == 'salir': break\n    elif acc == 'prestar':\n        lib = input('Nombre del libro: ')\n        if lib in disp:\n            disp.remove(lib)\n            prestados.append(lib)\n            print('Libro prestado.')\n        else: print('No disponible.')\n    elif acc == 'devolver':\n        lib = input('Nombre del libro: ')\n        if lib in prestados:\n            prestados.remove(lib)\n            disp.append(lib)\n            print('Libro devuelto.')\n        else: print('Ese libro no es nuestro.')"
+    },
+    {
+        "id": 20,
+        "titulo": "Juego de Trivia con Vidas",
+        "descripcion": "Crea un diccionario con 3 preguntas (llave) y sus respuestas (valor).\nEl jugador empieza con 2 vidas. Recorre el diccionario con un ciclo for.\nPor cada pregunta, pide la respuesta. Si acierta, gana 10 puntos. Si falla, pierde una vida.\nSi las vidas llegan a 0, usa 'break' para terminar el juego.",
+        "dificultad": "Difícil",
+        "categorias": ["Diccionarios", "Ciclos", "If", "Variables"],
+        "solucion": "trivia = {'¿Capital de Francia?': 'Paris', '¿2+2?': '4', '¿Color del cielo?': 'Azul'}\nvidas = 2\npuntos = 0\n\nfor preg, resp in trivia.items():\n    ans = input(f'{preg} ')\n    if ans.lower() == resp.lower():\n        puntos += 10\n        print('¡Correcto!')\n    else:\n        vidas -= 1\n        print(f'Incorrecto. Te quedan {vidas} vidas.')\n    \n    if vidas == 0:\n        print('Te quedaste sin vidas. Game Over.')\n        break\n\nprint(f'Puntaje final: {puntos}')"
     }
 ]
